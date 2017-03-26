@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, render_template, redirect, url_for, send_from_directory, flash
 from werkzeug.utils import secure_filename
+from PIL import Image
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -11,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
 	os.makedirs(UPLOAD_FOLDER)
 
-RESIZED_FOLDER = "/resized"
+RESIZED_FOLDER = "resized/"
 app.config['RESIZED_FOLDER'] = RESIZED_FOLDER
 if not os.path.exists(RESIZED_FOLDER):
 	os.makedirs(RESIZED_FOLDER)
@@ -23,36 +24,34 @@ app.config['ALLOWED_EXTENSIONS'] = ALLOWED_EXTENSIONS
 # For a given file, return whether it's an allowed type or not
 def allowed_file(filename):
 	return '.' in filename and \
-			ilename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+			filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Resize function
-def resize(filename, width, height):
+def resize_file(filename, width, height):
 	
 	# Valid values check
 	if width <= 0 and height <= 0:
-		return 
-	
+		return ""
 	# Open image
 	try:
-		img = Image.open(filename)
+		img = Image.open(os.path.join(UPLOAD_FOLDER, filename))
 	except:
-		return
-	
+		return ""
 	# Set sizes if one of the sizes is not set
 	if not width:
 		width = int(height * (float(img.size[0]) / (float(img.size[1]))))
-	else if not height:
+	elif not height:
 		height = int(width * (float(img.size[1]) / (float(img.size[0]))))
 	
 	# Resize image
-	img = img.resize((basewidth, 100), Image.ANTIALIAS)
+	img = img.resize((width, height), Image.ANTIALIAS)
 	
 	# Save image to be uploded to webpage
 	resized_file = "resized_" + filename
 	img.save(os.path.join(RESIZED_FOLDER, resized_file))
-	return redirect(url_for('resized_file', filename=resized_file))
+	return resized_file
 
-@app.route('/')
+@app.route('/index')
 def index():
 	return render_template('index.html')
 
@@ -63,7 +62,11 @@ def upload_file():
 		if 'file' not in request.files:
 			flash('No file part')
 			return redirect('index.html')
+		print('We are here')
 		file = request.files['file']
+		height = int(request.form['height'])
+		width = int(request.form['width'])
+		print('And here')
 		# if user does not select file, browser also
 		# submit a empty part without filename
 		if file.filename == '':
@@ -72,7 +75,12 @@ def upload_file():
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(UPLOAD_FOLDER, filename))
-			return redirect(url_for('uploaded_file', filename=filename))
+			resized_file = resize_file(filename, width, height)
+			if resized_file:
+				return redirect(url_for('resized_file', filename=resized_file))
+			print('File could not be resized')
+			return redirect(url_for('index'))
+			# return redirect(url_for('uploaded_file', filename=filename))
 	flash('Not a POST method')
 	return '''
 	<!doctype html>
@@ -90,6 +98,7 @@ def uploaded_file(filename):
 
 @app.route('/resized/<filename>')
 def resized_file(filename):
+	print("DISPLAY ME")
 	return send_from_directory(RESIZED_FOLDER, filename)
 
 if __name__ == '__main__':
