@@ -97,10 +97,12 @@
 		}
 
 		.btn_submit {
+			float: left;
 			margin: 4% 10%;
 			height: 3vw;
+			text-align: center;
 			font-size: 2vw;
-			width: 20%;
+			width: 25%;
 			border-radius: 0.5vw;
 			border-color: #409dee;
 			border-style: none;
@@ -108,6 +110,29 @@
 			background-color: rgb(74, 180, 118);
 			box-shadow: 0.3vw 0.3vw 0.3vw #000000;
 			cursor: pointer;
+		}
+
+		.link_download {
+			position: relative;
+			text-decoration: none;		
+		}
+
+		.download_container {
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			position: relative;
+			float: right;
+			margin: 4% 10%;
+			height: 3vw;
+			font-size: 2vw;
+			width: 25%;
+			border-radius: 0.5vw;
+			border-color: #409dee;
+			color: white;
+			background-color: red;
+			box-shadow: 0.3vw 0.3vw 0.3vw #000000;
+			
 		}
 	</style>
 </head>
@@ -128,6 +153,9 @@
 		</div>
 		<br style="clear:both" />
 		<button class="btn_submit" type="submit" name="submit" value="Upload">Resize</button>
+		<a href="../resized/resized_image.jpg" class="link_download" download>
+			<div class="download_container">Download</div>
+		</a>
 	</form>
 </body>
 </html>
