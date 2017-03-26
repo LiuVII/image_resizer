@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type= "text/css" href="/style.css">
+	<title>Image Resizer</title>
+	<style type="text/css">
+		body {
+			background-color: #325067;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 3vw;
+			color: white;
+		}
+
+		.input_form {
+			position: relative;
+			margin: 5% 30%;
+			width: 40%;
+			height: 17vw;
+			background-color: rgb(236, 242, 246);
+			border-radius: 1vw;
+			box-shadow: 1vw 1vw 1vw #000;
+		}
+
+		.text_path {
+			position: relative;
+			padding-top: 2%;
+			margin-left: 10%;
+			width: 40%;
+			font-size: 2vw;
+			color: #325067;
+		}
+
+		.input_path {
+			position: relative;
+			margin: 1% 10%;
+			height: 2vw;
+			font-size: 1.5vw;
+			width: 70%;
+			
+		}
+
+		.input_file {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+
+		.input_file + label {
+			width: 30%;
+			text-align: center;
+			margin-left: 10%;
+			padding: 0.5%;
+			font-size: 2vw;
+			border-radius: 0.5vw;
+			border-color: #409dee;
+			color: white;
+			background-color: #409dee;
+			box-shadow: 0.3vw 0.3vw 0.3vw #000000;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.hw_container {
+			float: left;
+			padding-top: 2%;
+			margin-left: 10%;
+			width: 15%;
+			font-size: 2vw;
+			color: #325067;
+		}
+
+		.hw_block {
+			
+		}
+
+		.input_height {
+			position: relative;
+			height: 2vw;
+			width: 100%;
+			text-align:right;
+			font-size: 1.5vw;
+		}
+
+		.input_width {
+			position: relative;
+			height: 2vw;
+			width: 100%;
+			text-align:right;
+			font-size: 1.5vw;
+		}
+
+		.btn_submit {
+			margin: 4% 10%;
+			height: 3vw;
+			font-size: 2vw;
+			width: 20%;
+			border-radius: 0.5vw;
+			border-color: #409dee;
+			border-style: none;
+			color: white;
+			background-color: rgb(74, 180, 118);
+			box-shadow: 0.3vw 0.3vw 0.3vw #000000;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Image Resizer</h1>
+	<form class="input_form" method="GET">
+		<div class="text_path">Path to the image:</div>
+		<input class="input_file" type="file" name="file" id="file" accept="image/*"/>
+		<label for="file">Choose a file</label>
+		<br />
+		<div class="hw_container">
+			Height:
+			<input class="input_height" name="height" value="0"/>
+		</div>
+		<div class="hw_container">
+			Width:
+			<input class="input_width" name="width" value="0"/>
+		</div>
+		<br style="clear:both" />
+		<button class="btn_submit" type="submit" name="submit" value="1">Resize</button>
+	</form>
+</body>
+</html>

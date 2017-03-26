@@ -1,0 +1,10 @@
+body {
+	background-color: rgb(34, 49, 63);
+}
+
+h1 {
+	text-align: center;
+	font-size: 3vw;
+	color: white;
+	transform: skewY(-1deg);
+}
