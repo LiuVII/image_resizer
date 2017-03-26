@@ -113,7 +113,7 @@
 </head>
 <body>
 	<h1>Image Resizer</h1>
-	<form class="input_form" method="GET">
+	<form class="input_form" method="POST" action="upload" enctype=multipart/form-data>
 		<div class="text_path">Path to the image:</div>
 		<input class="input_file" type="file" name="file" id="file" accept="image/*"/>
 		<label for="file">Choose a file</label>
@@ -127,7 +127,7 @@
 			<input class="input_width" name="width" value="0"/>
 		</div>
 		<br style="clear:both" />
-		<button class="btn_submit" type="submit" name="submit" value="1">Resize</button>
+		<button class="btn_submit" type="submit" name="submit" value="Upload">Resize</button>
 	</form>
 </body>
 </html>

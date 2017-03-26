@@ -1,2 +1,4 @@
 # Uses python 2.7
 Flask (0.12)
+Pillow (4.0.0)
+Werkzeug (0.12.1)
