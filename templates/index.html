@@ -112,9 +112,9 @@
 			cursor: pointer;
 		}
 
-		.link_download {
+/*		.link_download {
 			position: relative;
-			text-decoration: none;		
+			text-decoration: none;
 		}
 
 		.download_container {
@@ -133,7 +133,7 @@
 			background-color: red;
 			box-shadow: 0.3vw 0.3vw 0.3vw #000000;
 			
-		}
+		}*/
 	</style>
 </head>
 <body>
@@ -145,17 +145,17 @@
 		<br />
 		<div class="hw_container">
 			Height:
-			<input class="input_height" name="height" value="0"/>
+			<input class="input_height" name="heigth" type="text" pattern="[0-9]{0,3}" value="0"/>
 		</div>
 		<div class="hw_container">
 			Width:
-			<input class="input_width" name="width" value="0"/>
+			<input class="input_width" name="width" type="text" pattern="[0-9]{0,3}" value="0"/>
 		</div>
 		<br style="clear:both" />
 		<button class="btn_submit" type="submit" name="submit" value="Upload">Resize</button>
-		<a href="../resized/resized_image.jpg" class="link_download" download>
+<!-- 		<a href="../resized/resized_image.jpg" class="link_download" download>
 			<div class="download_container">Download</div>
-		</a>
+		</a> -->
 	</form>
 </body>
 </html>
