@@ -61,7 +61,7 @@ def upload_file():
 		# check if the post request has the file part
 		if 'file' not in request.files:
 			flash('No file part')
-			return redirect('index.html')
+			return redirect(url_for('index'))
 		print('We are here')
 		file = request.files['file']
 		height = int(request.form['height'])
@@ -71,7 +71,7 @@ def upload_file():
 		# submit a empty part without filename
 		if file.filename == '':
 			flash('No selected file')
-			return redirect('index.html')
+			return redirect(url_for('index'))
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -82,15 +82,7 @@ def upload_file():
 			return redirect(url_for('index'))
 			# return redirect(url_for('uploaded_file', filename=filename))
 	flash('Not a POST method')
-	return '''
-	<!doctype html>
-	<title>Upload new File</title>
-	<h1>Upload new File</h1>
-	<form method=post enctype=multipart/form-data>
-		<p><input type=file name=file>
-			<input type=submit value=Upload>
-	</form>
-	'''
+	return redirect(url_for('index'))
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
