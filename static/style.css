@@ -1,10 +1,112 @@
 body {
-	background-color: rgb(34, 49, 63);
+	background-color: #325067;
 }
 
 h1 {
 	text-align: center;
 	font-size: 3vw;
 	color: white;
-	transform: skewY(-1deg);
+}
+
+.input_form {
+	position: relative;
+	margin: 5% 30%;
+	width: 40%;
+	height: 20vw;
+	background-color: rgb(236, 242, 246);
+	border-radius: 1vw;
+	box-shadow: 1vw 1vw 1vw #000;
+}
+
+.text_path {
+	position: relative;
+	padding-top: 2%;
+	margin-left: 45%;
+	width: 40%;
+	font-size: 2vw;
+	color: #325067;
+}
+
+.input_path {
+	position: relative;
+	margin: 1% 10%;
+	height: 2vw;
+	font-size: 1.5vw;
+	width: 70%;
+	
+}
+
+.input_file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input_file + label {
+	width: 30%;
+	text-align: center;
+	margin: 5% 5%;
+	padding: 0.5%;
+	font-size: 2vw;
+	border-radius: 0.5vw;
+	border-color: #409dee;
+	color: white;
+	background-color: #409dee;
+	box-shadow: 0.3vw 0.3vw 0.3vw #000000;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.chosen_file {
+	width: 45%;
+	height: 2vw;
+}
+
+.hw_container {
+	position: relative;
+	float: left;
+	padding-top: 2%;
+	margin-left: 5%;
+	width: 50%;
+	font-size: 2vw;
+	color: #325067;
+}
+
+.input_height {
+	position: absolute;
+	height: 2vw;
+	margin: auto;
+	right: 0%;
+	width: 20%;
+	text-align:right;
+	font-size: 1.5vw;
+}
+
+.input_width {
+	position: absolute;
+	height: 2vw;
+	margin: auto;
+	right: 0%;
+	width: 20%;
+	text-align:right;
+	font-size: 1.5vw;
+}
+
+.btn_submit {
+	float: left;
+	margin: 6% 5%;
+	height: 3vw;
+	text-align: center;
+	font-size: 2vw;
+	width: 30%;
+	border-radius: 0.5vw;
+	border-color: #409dee;
+	border-style: none;
+	color: white;
+	background-color: rgb(74, 180, 118);
+	box-shadow: 0.3vw 0.3vw 0.3vw #000000;
+	cursor: pointer;
 }
