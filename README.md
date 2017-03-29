@@ -2,13 +2,14 @@
 Single endpoint web server takes in an image and resizes (scales) it to the specified dimensions
 
 ## Setup
-To setup application simply git clone into any folder with reading and writing access rights.
+To setup application simply copy (or git clone) the application folder into any location with reading and writing access rights.
 
 The application requires python 2 (version 2.7 or greater) with
 installed libraries specified in 'requirements.txt'.
 
 ## Run
-To run the application cd to the application folder and simply execute:
+To run the application using the terminal
+cd to the application folder and simply execute:
 '''
 python app.py
 '''
@@ -22,9 +23,9 @@ http://127.0.0.1:5000/
 The application is tested with the Chrome browser
 (there could be performance issues with other browsers) 
 
-The starting page is 'index' page, so the whole address should be [url]/index:
+Put server address to the browser window to access the index page:
 '''
-http://127.0.0.1:5000/index
+http://127.0.0.1:5000/
 '''
 
 A simple form with 'choose file' button, 'height', 'width' fields and 'resize' button should appear
@@ -36,9 +37,12 @@ Choose an image file to be uploaded
 Select the width and height you want to scale the image (accepted params from 0 to 999):
 - If both sizes specified image will scale to fit specified size (not preserving aspect ratio);
 - If only one size > 0, image will scale to the non-zero size, maintaining aspect ratio;
-- In case both sizes left blank or zero image size would be preserved;
+- In case both sizes left zero image size would be preserved;
 
 Uploaded images are collected inside 'uploads' folder, resized images can be found in 'resized' folder within the application folder
+
+File management implemented in a way that for every change of file new file will be created in the 'uploads' folder,
+and for every resize action only the last version is saved in the 'resized' folder.
 
 ## Additional info
 The application uses Pillow library and it's ANTIALIAS filter to perform overall good quality scaling.

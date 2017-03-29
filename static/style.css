@@ -27,15 +27,6 @@ h1 {
 	color: #325067;
 }
 
-.input_path {
-	position: relative;
-	margin: 1% 10%;
-	height: 2vw;
-	font-size: 1.5vw;
-	width: 70%;
-	
-}
-
 .input_file {
 	width: 0.1px;
 	height: 0.1px;
@@ -65,34 +56,45 @@ h1 {
 	height: 2vw;
 }
 
+.is_changed {
+	width: 0.1px;
+	height: 0.1px;
+	visibility: hidden;
+	position: absolute;
+}
+
 .hw_container {
 	position: relative;
 	float: left;
 	padding-top: 2%;
 	margin-left: 5%;
-	width: 50%;
-	font-size: 2vw;
+	height: 2.5vw;
+	width: 42%;
+	font-size: 1.8vw;
 	color: #325067;
 }
 
-.input_height {
+.input_hw {
 	position: absolute;
-	height: 2vw;
+	height: 1.5vw;
 	margin: auto;
 	right: 0%;
-	width: 20%;
+	width: 27%;
 	text-align:right;
 	font-size: 1.5vw;
 }
 
-.input_width {
+.fixed_hw {
 	position: absolute;
-	height: 2vw;
+	height: 1.5vw;
 	margin: auto;
-	right: 0%;
-	width: 20%;
+	right: 12%;
+	width: 27%;
+	padding-top: 3%;
+	border-style: none;
 	text-align:right;
 	font-size: 1.5vw;
+	background-color: rgb(236, 242, 246);
 }
 
 .btn_submit {
