@@ -10,23 +10,23 @@ installed libraries specified in 'requirements.txt'.
 ## Run
 To run the application using the terminal
 cd to the application folder and simply execute:
-'''
+```
 python app.py
-'''
+```
 
 On a success the application will provide an URL path to the server:
-'''
+```
 http://127.0.0.1:5000/
-'''
+```
 
 ## Inside the browser
 The application is tested with the Chrome browser
 (there could be performance issues with other browsers) 
 
 Put server address to the browser window to access the index page:
-'''
+```
 http://127.0.0.1:5000/
-'''
+```
 
 A simple form with 'choose file' button, 'height', 'width' fields and 'resize' button should appear
 
